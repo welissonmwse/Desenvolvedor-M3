@@ -62,6 +62,10 @@ button {
       
       font-size: 10px;
     }
+
+    .bag-amout.hidden{
+      display: none;
+    }
   }
 }
 
@@ -78,6 +82,11 @@ button {
     h1 {
       font-size: $xl;
       color: $gray-600;
+    }
+
+    select {
+      padding: 8px;
+      background: transparent;
     }
   }
 

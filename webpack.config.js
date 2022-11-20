@@ -2,9 +2,10 @@ const path = require("path");
 const webpack = require("webpack");
 
 module.exports = (paths) => ({
-  entry: {
-    main: path.resolve(__dirname, paths.scripts.src),
-  },
+  // entry: {
+  //   main: path.resolve(__dirname, paths.scripts.src),
+  // },
+  entry: ["regenerator-runtime/runtime.js", path.resolve(__dirname, paths.scripts.src)],
   output: {
     path: path.resolve(__dirname, paths.dest),
     filename: "bundle.js",

@@ -19,7 +19,7 @@
       <img src="./img/logo-m3.png" alt="Logo m3">
       <button class="bag">
         <img src="./img/bag.svg" alt="Sacola de compras">
-        <span class="bag-amout">1</span>
+        <span class="bag-amout hidden">1</span>
       </button>
     </div>
   </header>
@@ -27,8 +27,11 @@
   <main class="container">
     <div class="main-header">
       <h1>Blusas</h1>
-      <select>
-        <option value="">Ordenar por:</option>
+      <select data-js="sort" name="marcas">
+        <option value="" >Ordenar por:</option>
+        <option value="1" >Mais recentes</option>
+        <option value="2" >Menor preço</option>
+        <option value="3" >Maior preço</option>
       </select>
     </div>
     <div class="content">
@@ -36,7 +39,7 @@
         
       </aside>
       <section>
-        <div class="card">
+        <!-- <div class="card">
           <div class="img">
             <img src="./img/img_10.png" alt="">
           </div>
@@ -46,40 +49,7 @@
             <span>até 3x de R$9,33</span>
           </div>
           <button>comprar</button>
-        </div>
-        <div class="card">
-          <div class="img">
-            <img src="./img/img_10.png" alt="">
-          </div>
-          <div class="card-body">
-            <h2 class="title">Camiseta Mescla</h2>
-            <strong class="card-amout">R$ 28,00</strong>
-            <span>até 3x de R$9,33</span>
-          </div>
-          <button>comprar</button>
-        </div>
-        <div class="card">
-          <div class="img">
-            <img src="./img/img_10.png" alt="">
-          </div>
-          <div class="card-body">
-            <h2 class="title">Camiseta Mescla</h2>
-            <strong class="card-amout">R$ 28,00</strong>
-            <span>até 3x de R$9,33</span>
-          </div>
-          <button>comprar</button>
-        </div>
-        <div class="card">
-          <div class="img">
-            <img src="./img/img_10.png" alt="">
-          </div>
-          <div class="card-body">
-            <h2 class="title">Camiseta Mescla</h2>
-            <strong class="card-amout">R$ 28,00</strong>
-            <span>até 3x de R$9,33</span>
-          </div>
-          <button>comprar</button>
-        </div>
+        </div> -->
       </section>
     </div>
     <div class="main-footer">
