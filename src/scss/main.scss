@@ -94,12 +94,6 @@ button {
     display: flex;
     margin-top: 4rem;
 
-    aside {
-      min-width: 157px;
-      height: 544px;
-      background: $gray-300;
-    }
-
     section {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -130,6 +124,145 @@ button {
 
 }
 
+.filter {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 157px;
+  height: 544px;
+
+  h3 {
+    font-size: $md;
+    color: $gray-600;
+    line-height: 22px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 14px;
+  }
+
+  input[type=checkbox] {
+    position: relative;
+    cursor: pointer;
+
+    &:focus{
+      outline: 0;
+      box-shadow: 0 0 0 0 transparent;
+    }
+    
+  }
+
+  .filter-colors {
+
+    .color-item {
+      & + .color-item {
+        margin-top: 10px;
+      }
+    }
+  
+    input[type=checkbox]:before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      top: 0;
+      left: 0;
+      background-color: #ffffff;
+      border: 1px solid $gray-300;
+    }
+    
+    input[type=checkbox]:checked:after {
+      content: "";
+      position: absolute;
+
+      display: block;
+      width: 10px;
+      height: 10px;
+      top: 4px;
+      left: 4px;
+      background: $cyan-100;
+    }
+
+    label{
+      margin-left: 4px;
+    }
+  }
+
+  .filter-sizes {
+
+    .filter-size-items{
+      display: grid;
+      grid-template-columns: repeat(4, minmax(32px, 1fr));
+      gap: 8px;
+    }
+
+    .size {
+      position: relative;
+
+      input[type=checkbox] {
+        position: absolute;
+        left: -9999999px;
+      }
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      font-size: $md;
+      text-transform: uppercase;
+      color: $gray-300; 
+      border: 1px solid $gray-300;
+      cursor: pointer;
+    }
+
+    input[type=checkbox]:checked ~ label {
+      color: $black;
+      border-color: $cyan-100;
+    }
+
+  }
+
+  .filter-price-range {
+    .range-item {
+      & + .range-item {
+        margin-top: 10px;
+      }
+    }
+  
+    input[type=checkbox]:before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      top: 0;
+      left: 0;
+      background-color: #ffffff;
+      border: 1px solid $gray-300;
+    }
+    
+    input[type=checkbox]:checked:after {
+      content: "";
+      position: absolute;
+
+      display: block;
+      width: 10px;
+      height: 10px;
+      top: 4px;
+      left: 4px;
+      background: $cyan-100;
+    }
+
+    label{
+      margin-left: 4px;
+      line-height: 14px;
+    }
+  }
+
+}
 
 .card {
   
