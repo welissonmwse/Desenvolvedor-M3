@@ -3,6 +3,7 @@ import 'regenerator-runtime/runtime'
 const serverurl = process.env.SERVER_API;
 const sortProduct = document.querySelector("[data-js='sort']")
 const section = document.querySelector('section')
+const mainContet = document.querySelector('.main-contet')
 const inputs = document.querySelectorAll('.filter input')
 const cart = []
 
@@ -34,7 +35,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function notFound() {
   section.innerHTML = `
-    <div>Nenhum produto encontrado</div>
+    <div class="notfound">
+    <span>X</span>
+      <h3> Nenhum produto encontrado!!</h3>
+    </div>
   `
 }
 
@@ -63,7 +67,10 @@ function renderProducts(products) {
   }, '')
 
   
-  section.innerHTML = productsList
+  section.innerHTML = `
+    <div class="main-contet">
+      ${productsList}
+    </div>`
 
   const buttons = document.querySelectorAll(".card button")
   buttons.forEach(button =>{
@@ -139,7 +146,7 @@ inputs.forEach(input => {
         inputItem.checked ? endpoint += `&${inputItem.name}=${inputItem.value}` : ''
       }
     })
-    
+
     fetchProducts(`/products?${endpoint.replace('&','')}`)
   })
 })

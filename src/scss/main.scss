@@ -95,13 +95,15 @@ button {
     margin-top: 4rem;
 
     section {
+      width: 100%;
+    }
+
+    .main-contet {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 2.5rem;
       padding: 0 130px;
       margin-bottom: 4.375rem;
-      width: 100%;
-
     }
   }
 
@@ -119,6 +121,25 @@ button {
       color: #ffffff;
       text-transform: uppercase;
       font-weight: 700;
+    }
+  }
+
+  .notfound {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+    color: #F75A68;
+
+    h3 {
+      font-weight: $xl;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      
+    }
+    span {
+      font-weight: 700;
+      font-size: 3rem;
     }
   }
 
