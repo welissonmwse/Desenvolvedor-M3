@@ -2,12 +2,22 @@ import 'regenerator-runtime/runtime'
 
 const serverurl = process.env.SERVER_API;
 const sortProduct = document.querySelector("[data-js='sort']")
+const section = document.querySelector('section')
+const inputs = document.querySelectorAll('.filter input')
 const cart = []
+
+const range = {
+  range1: 'price_gte=0&price_lte=50',
+  range2: 'price_gte=51&price_lte=150',
+  range3: 'price_gte=151&price_lte=300',
+  range4: 'price_gte=301&price_lte=500',
+  range5: 'price_gte=0&price_lte=999999999',
+}
 
 async function fetchProducts(endpoint){
   const response = await fetch(`${serverurl}${endpoint}`)
   const data = await response.json()
-  renderProducts(data)
+  data.length > 0 ? renderProducts(data) : notFound()
 }
 
 function renderCart(){
@@ -18,16 +28,15 @@ function renderCart(){
   span.innerText = cart.length
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
-  await fetchProducts(`/products?_page=1`)
+document.addEventListener("DOMContentLoaded", () => {
+  fetchProducts(`/products?_page=1`)
 });
 
-
-// async function filter(){
-//   const response = await fetch(`${serverurl}/products?color=Cinza&size_like=M`)
-//   const data = await response.json()
-//   renderProducts(data)
-// }
+function notFound() {
+  section.innerHTML = `
+    <div>Nenhum produto encontrado</div>
+  `
+}
 
 const formatePrice = new Intl.NumberFormat('pt-BR', {
   style: 'currency',
@@ -53,7 +62,7 @@ function renderProducts(products) {
     return accumulator
   }, '')
 
-  const section = document.querySelector('section')
+  
   section.innerHTML = productsList
 
   const buttons = document.querySelectorAll(".card button")
@@ -68,8 +77,8 @@ function renderProducts(products) {
   })
 }
 
-document.querySelector('.load-more').addEventListener('click', async () =>{
-  await fetchProducts(`/products?_page=2`)
+document.querySelector('.load-more').addEventListener('click', () => {
+  fetchProducts(`/products?_page=2`)
   window.scroll(0, 0)
 })
 
@@ -119,3 +128,18 @@ sortProduct.addEventListener('click', async () => {
   
 })
 
+inputs.forEach(input => {
+  input.addEventListener('change', () => {
+    let endpoint = ''
+
+    inputs.forEach(inputItem => {
+      if(inputItem.type === 'radio'){
+        inputItem.checked ? endpoint += `&${range[inputItem.value]}` : ''
+      }else {
+        inputItem.checked ? endpoint += `&${inputItem.name}=${inputItem.value}` : ''
+      }
+    })
+    
+    fetchProducts(`/products?${endpoint.replace('&','')}`)
+  })
+})
