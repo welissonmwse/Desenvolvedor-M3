@@ -3,8 +3,12 @@ import 'regenerator-runtime/runtime'
 const serverurl = process.env.SERVER_API;
 const sortProduct = document.querySelector("[data-js='sort']")
 const section = document.querySelector('section')
-const mainContet = document.querySelector('.main-contet')
+const filter = document.querySelector('.filter')
 const inputs = document.querySelectorAll('.filter input')
+const btnFilter = document.querySelector('.btn-filter')
+const btnClose = document.querySelector('.close')
+const accordions = document.querySelectorAll(".dropdown")
+const accordion = document.querySelector(".accordion")
 const cart = []
 
 const range = {
@@ -47,7 +51,6 @@ const formatePrice = new Intl.NumberFormat('pt-BR', {
   currency: 'BRL',
 })
 
-
 function renderProducts(products) {
   const productsList = products.reduce((accumulator, product) => {
     accumulator += `
@@ -66,7 +69,6 @@ function renderProducts(products) {
     return accumulator
   }, '')
 
-  
   section.innerHTML = `
     <div class="main-contet">
       ${productsList}
@@ -150,3 +152,37 @@ inputs.forEach(input => {
     fetchProducts(`/products?${endpoint.replace('&','')}`)
   })
 })
+
+accordions.forEach(acc => {
+  acc.addEventListener('click', () => {
+    const submenuItems = acc.nextElementSibling
+    if (submenuItems.style.maxHeight) {
+      submenuItems.style.maxHeight = null
+      submenuItems.style.paddingBottom = 0
+    } else {
+      submenuItems.style.maxHeight = `${submenuItems.scrollHeight + 10}px`
+      submenuItems.style.paddingBottom = 16 + "px"
+    }
+  })
+})
+
+accordion.addEventListener('click', () => {
+  const submenuItems = accordion.nextElementSibling
+  submenuItems.style.maxHeight = `${submenuItems.scrollHeight + 10}px`
+  submenuItems.style.paddingBottom = 16 + "px"
+  accordion.style.display = 'none'
+})
+
+btnFilter.addEventListener('click', () => {
+  filter.classList.add('active')
+})
+
+
+btnClose.addEventListener('click', () => {
+  hiddenFilter()
+})
+
+function hiddenFilter(){
+  filter.classList.remove('active')
+}
+

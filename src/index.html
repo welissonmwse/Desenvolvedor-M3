@@ -34,34 +34,78 @@
         <option value="3" >Maior preço</option>
       </select>
     </div>
+    <div class="btn-container">
+      <button class="btn-filter">Filtrar</button>
+      <button class="btn-sort">Ordenar</button>
+    </div>
     <div class="content">
       <aside class="filter">
+        <div class="filter-header-mobile">
+          <span>filtar</span>
+          <buton class="close">x</buton>
+        </div>
         <div class="filter-colors">
-          <h3>cores</h3>
-          <div class="color-item">
-            <input type="checkbox" name="color" id="color1" value="Amarelo">
-            <label for="color1">Amarelo</label>
+          <div class="dropdown">
+            <h3>cores</h3>
+            <img src="./img/outline-down.svg" alt="">
           </div>
-          <div class="color-item">
-            <input type="checkbox" name="color" id="color2" value="Azul">
-            <label for="color2">Azul</label>
-          </div>
-          <div class="color-item">
-            <input type="checkbox" name="color" id="color3" value="Branco">
-            <label for="color3">Branco</label>
-          </div>
-          <div class="color-item">
-            <input type="checkbox" name="color" id="color4" value="Cinza">
-            <label for="color4">Cinza</label>
-          </div>
-          <div class="color-item">
-            <input type="checkbox" name="color" id="color5" value="Laranja">
-            <label for="color5">Laranja</label>
+          <div class="submenu-items">
+            <div class="color-item">
+              <input type="checkbox" name="color" id="color1" value="Amarelo">
+              <label for="color1">Amarelo</label>
+            </div>
+            <div class="color-item">
+              <input type="checkbox" name="color" id="color2" value="Azul">
+              <label for="color2">Azul</label>
+            </div>
+            <div class="color-item">
+              <input type="checkbox" name="color" id="color3" value="Branco">
+              <label for="color3">Branco</label>
+            </div>
+            <div class="color-item">
+              <input type="checkbox" name="color" id="color4" value="Cinza">
+              <label for="color4">Cinza</label>
+            </div>
+            <div class="color-item">
+              <input type="checkbox" name="color" id="color5" value="Laranja">
+              <label for="color5">Laranja</label>
+            </div>
+            <div class="more-colors">
+              <div class="accordion">
+                <h3>Ver todas as cores</h3>
+                <img src="./img/outline-down.svg" alt="">
+              </div>
+              <div class="panel">
+                <div class="color-item">
+                  <input type="checkbox" name="color" id="color6" value="Verde">
+                  <label for="color1">Verde</label>
+                </div>
+                <div class="color-item">
+                  <input type="checkbox" name="color" id="color7" value="Vermelho">
+                  <label for="color2">Vermelho</label>
+                </div>
+                <div class="color-item">
+                  <input type="checkbox" name="color" id="color8" value="Preto">
+                  <label for="color3">Preto</label>
+                </div>
+                <div class="color-item">
+                  <input type="checkbox" name="color" id="color9" value="Rosa">
+                  <label for="color4">Rosa</label>
+                </div>
+                <div class="color-item">
+                  <input type="checkbox" name="color" id="color10" value="Vinho">
+                  <label for="color5">Vinho</label>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="filter-sizes">
-          <h3>Tamanhos</h3>
-          <div class="filter-size-items">
+          <div class="dropdown">
+            <h3>Tamanhos</h3>
+            <img src="./img/outline-down.svg" alt="">
+          </div>
+          <div class="filter-size-items submenu-items">
             <div class="size">
               <input type="checkbox" name="size_like" id="size1" value="P">
               <label for="size1">p</label>
@@ -106,26 +150,31 @@
           </div>
         </div>
         <div class="filter-price-range">
-          <h3>Faixa de Preço</h3>
-          <div class="range-item">
-            <input type="radio" name="range" id="range1" value="range1">
-            <label for="range1">de R$0 até R$50</label>
+          <div class="dropdown">
+            <h3>Faixa de Preço</h3>
+            <img src="./img/outline-down.svg" alt="">
           </div>
-          <div class="range-item">
-            <input type="radio" name="range" id="range2" value="range2">
-            <label for="range2">de R$51 até R$150</label>
-          </div>
-          <div class="range-item">
-            <input type="radio" name="range" id="range3" value="range3">
-            <label for="range3">de R$151 até R$300</label>
-          </div>
-          <div class="range-item">
-            <input type="radio" name="range" id="range4" value="range4">
-            <label for="range4">de R$301 até R$500</label>
-          </div>
-          <div class="range-item">
-            <input type="radio" name="range" id="range5" value="range5">
-            <label for="range5">a partir de R$ 500</label>
+          <div class="submenu-items">
+            <div class="range-item">
+              <input type="radio" name="range" id="range1" value="range1">
+              <label for="range1">de R$0 até R$50</label>
+            </div>
+            <div class="range-item">
+              <input type="radio" name="range" id="range2" value="range2">
+              <label for="range2">de R$51 até R$150</label>
+            </div>
+            <div class="range-item">
+              <input type="radio" name="range" id="range3" value="range3">
+              <label for="range3">de R$151 até R$300</label>
+            </div>
+            <div class="range-item">
+              <input type="radio" name="range" id="range4" value="range4">
+              <label for="range4">de R$301 até R$500</label>
+            </div>
+            <div class="range-item">
+              <input type="radio" name="range" id="range5" value="range5">
+              <label for="range5">a partir de R$ 500</label>
+            </div>
           </div>
         </div>
       </aside>
@@ -141,7 +190,7 @@
   <footer class="footer">
     <p>M3: Implantação de E-commerce VTEX</p>
   </footer>
-
+  <div></div>
 </body>
 <script src="bundle.js"></script>
 </html>
