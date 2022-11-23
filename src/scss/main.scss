@@ -202,7 +202,6 @@ button {
   flex-direction: column;
   gap: 24px;
   min-width: 167px;
-  height: 544px;
 
   h3 {
     font-size: $md;
@@ -380,6 +379,10 @@ button {
       margin-left: 4px;
       line-height: 14px;
     }
+  }
+
+  .filter-footer {
+    display: none;
   }
 
 }
@@ -587,6 +590,32 @@ button {
       max-height: 0;
       overflow: hidden;
       transition: all .5s ease-in;
+    }
+
+    .filter-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      padding: 1rem;
+
+      button {
+        width: 100%;
+        padding: 8px;
+        max-width: 160px;
+        text-transform: uppercase;
+      }
+
+      .btn-apply {
+        color: #ffffff;
+        background: $cyan-100;
+      }
+
+      .btn-clear {
+        color: $gray-500;
+        background: transparent;
+        border: 1px solid $gray-500;
+      }
     }
   }
 }

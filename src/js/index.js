@@ -203,6 +203,18 @@ btnSort.addEventListener('click', () => {
 })
 
 
+document.querySelector('.btn-apply').addEventListener('click', () => {
+  hiddenFilter()
+})
+
+document.querySelector('.btn-clear').addEventListener('click', () => {
+  inputs.forEach(input => {
+    input.checked = false
+  })
+  fetchProducts(`/products?_page=1`)
+  hiddenFilter()
+})
+
 btnCloseFilter.addEventListener('click', () => {
   hiddenFilter()
 })
