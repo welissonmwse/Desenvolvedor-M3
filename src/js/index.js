@@ -1,14 +1,18 @@
 import 'regenerator-runtime/runtime'
 
 const serverurl = process.env.SERVER_API;
-const sortProduct = document.querySelector("[data-js='sort']")
+const sortContainer = document.querySelector(".sort")
+const headdingAccordion = document.querySelector('.heding-desktop')
 const section = document.querySelector('section')
 const filter = document.querySelector('.filter')
 const inputs = document.querySelectorAll('.filter input')
 const btnFilter = document.querySelector('.btn-filter')
-const btnClose = document.querySelector('.close')
+const btnSort = document.querySelector('.btn-sort')
+const btnCloseFilter = document.querySelector('.filter-header-mobile .close')
+const btnCloseSort = document.querySelector('.heding-mobile .close')
 const accordions = document.querySelectorAll(".dropdown")
 const accordion = document.querySelector(".accordion")
+const sortOptions = document.querySelector('.sort-options')
 const cart = []
 
 const range = {
@@ -91,8 +95,16 @@ document.querySelector('.load-more').addEventListener('click', () => {
   window.scroll(0, 0)
 })
 
-sortProduct.addEventListener('click', async () => {
-  const optionValue = sortProduct.options[sortProduct.selectedIndex].value
+headdingAccordion.addEventListener('click', () => {
+  const submenuItems = headdingAccordion.nextElementSibling
+    if (submenuItems.style.maxHeight) {
+      submenuItems.style.maxHeight = null
+    } else {
+      submenuItems.style.maxHeight = `${submenuItems.scrollHeight + 10}px`
+    }
+})
+
+async function sortProduct(optionValue){
 
   if(optionValue === '') return
 
@@ -135,6 +147,15 @@ sortProduct.addEventListener('click', async () => {
     return
   }
   
+}
+
+document.querySelectorAll('.sort-options button').forEach(button => {
+  button.addEventListener('click', () => {
+   const optionValue = button.getAttribute('data-id')
+   sortProduct(optionValue)
+   sortOptions.style.maxHeight = null
+   hiddenSort()
+  })
 })
 
 inputs.forEach(input => {
@@ -177,12 +198,24 @@ btnFilter.addEventListener('click', () => {
   filter.classList.add('active')
 })
 
+btnSort.addEventListener('click', () => {
+  sortContainer.classList.add('active')
+})
 
-btnClose.addEventListener('click', () => {
+
+btnCloseFilter.addEventListener('click', () => {
   hiddenFilter()
+})
+
+btnCloseSort.addEventListener('click', () => {
+  hiddenSort()
 })
 
 function hiddenFilter(){
   filter.classList.remove('active')
+}
+
+function hiddenSort(){
+  sortContainer.classList.remove('active')
 }
 

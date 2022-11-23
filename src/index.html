@@ -27,12 +27,22 @@
   <main class="container">
     <div class="main-header">
       <h1>Blusas</h1>
-      <select data-js="sort" name="marcas">
-        <option value="" >Ordenar por:</option>
-        <option value="1" >Mais recentes</option>
-        <option value="2" >Menor preço</option>
-        <option value="3" >Maior preço</option>
-      </select>
+      <div class="sort" data-js="sort">
+        <div class="heding-mobile">
+          <span>Ordenar</span>
+          <buton class="close">x</buton>
+        </div>
+
+        <div class="heding-desktop">
+          <span>Ordenar por:</span>
+          <img src="./img/outline-down.svg" alt="">
+        </div>
+        <div class="sort-options">
+          <button data-id="1" >Mais recentes</button>
+          <button data-id="2" >Menor preço</button>
+          <button data-id="3" >Maior preço</button>
+        </div>
+      </div>
     </div>
     <div class="btn-container">
       <button class="btn-filter">Filtrar</button>
